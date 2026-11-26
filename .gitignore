@@ -1,0 +1,12 @@
+# Datos y figuras no se suben
+*.rsk
+*.nc
+*.mat
+*.csv
+*.xlsx
+*.txt
+*.zip
+*.png
+
+# Excepción: datos de centros con publicación autorizada
+!datos/chaparano/*.csv

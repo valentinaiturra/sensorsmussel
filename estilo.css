@@ -1,0 +1,125 @@
+/* Colores generales */
+:root {
+  --azul: #0e3b52;
+  --fondo: #f1f6f8;
+  --borde: #d5e2e8;
+  --texto-suave: #4d6673;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  color: var(--azul);
+  background: var(--fondo);
+}
+
+.contenido {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+h2 { font-family: Fraunces, Georgia, serif; font-weight: 600; font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1.1; margin: 0; }
+
+/* Encabezado y botones de centros */
+header { background: var(--azul); color: #fff; padding: 1.25rem 0; }
+
+#centros { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+
+button { font: inherit; cursor: pointer; }
+button:focus-visible { outline: 3px solid #f0a202; outline-offset: 2px; }
+
+#centros button, #centros .proximo {
+  padding: 0.55rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid #7fa6b8;
+  background: transparent;
+  color: #fff;
+}
+#centros button[aria-pressed="true"] { background: #fff; color: var(--azul); font-weight: 600; }
+#centros .proximo { border-style: dashed; color: #cfe3ec; }
+
+/* Centro elegido y período */
+main { padding-top: 1.75rem; padding-bottom: 2.5rem; }
+
+.encabezado-centro {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: end;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+.encabezado-centro p { margin: 0.25rem 0 0; color: var(--texto-suave); }
+
+#promedios { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+#promedios button {
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--azul);
+}
+#promedios button[aria-pressed="true"] { background: var(--azul); color: #fff; }
+
+/* Tarjetas con el último valor */
+#tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+.tarjeta, .grafico {
+  background: #fff;
+  border: 1px solid var(--borde);
+  border-radius: 16px;
+  padding: 1.25rem 1.4rem;
+  box-shadow: 0 6px 18px rgba(14, 59, 82, 0.07);
+}
+
+/* Tarjeta: nombre y variación arriba, número grande, barra de rango abajo */
+.tarjeta { display: flex; flex-direction: column; gap: 0.2rem; border-top: 5px solid var(--color); }
+.tarjeta .cabeza { display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; }
+.tarjeta .nombre {
+  font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  display: flex; align-items: center; gap: 0.45rem;
+}
+.tarjeta .nombre::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--color); }
+.tarjeta .valor { font-family: Fraunces, Georgia, serif; font-size: 3rem; font-weight: 600; line-height: 1.1; margin-top: 0.5rem; }
+.tarjeta .unidad { font-family: "Segoe UI", system-ui, sans-serif; font-size: 1.1rem; font-weight: 400; color: var(--texto-suave); }
+.tarjeta .cuando, .tarjeta .detalle { color: var(--texto-suave); font-size: 0.85rem; }
+
+.rango { margin-top: 1rem; }
+.rango .titulo-rango { font-size: 0.75rem; color: var(--texto-suave); margin-bottom: 0.45rem; }
+.rango .barra {
+  position: relative; height: 8px; border-radius: 999px;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--color) 15%, #fff), var(--color));
+}
+.rango .punto {
+  position: absolute; top: 50%; width: 16px; height: 16px; border-radius: 50%;
+  transform: translate(-50%, -50%); background: #fff; border: 3px solid var(--azul);
+}
+.rango .extremos { display: flex; justify-content: space-between; font-size: 0.8rem; margin-top: 0.4rem; }
+.rango .extremos span { color: var(--texto-suave); }
+
+.grafico { margin-bottom: 1rem; padding: 1rem 0.75rem 0.5rem; }
+.grafico h3 { margin: 0 0.5rem; font-size: 1.05rem; }
+.grafico .dibujo { height: 270px; }
+.grafico .titulo { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0.5rem; }
+.grafico .franja { color: var(--texto-suave); font-size: 0.85rem; font-weight: 400; }
+
+/* Fechas y botones secundarios */
+#fechas { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
+#fechas input { font: inherit; color: var(--azul); padding: 0.3rem 0.5rem; border: 1px solid var(--borde); border-radius: 8px; }
+#todo, .descargar {
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--azul);
+}
+.descargar { font-size: 0.85rem; }
+
