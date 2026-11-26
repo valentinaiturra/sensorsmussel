@@ -10,7 +10,7 @@ const elemento = (id) => document.getElementById(id);
 let centros = [];
 let datosActuales = [];
 let centroActual = null;
-let tipoPromedio = "hora";
+let tipoPromedio = "original";
 let solicitud = 0; // evita mezclar centros si se cambia rápido de botón
 
 // Completa las fechas sin hora (medianoche) con 00:00:00
